@@ -81,7 +81,7 @@ fun MovieCard() {
 
                 Button(
                     onClick = { },
-                    modifier = Modifier,
+                    modifier = Modifier.padding(vertical = 5.dp).size(100.dp,70.dp),
                     shape = RoundedCornerShape(15),
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.White, contentColor = Color.Black)
                 ) {

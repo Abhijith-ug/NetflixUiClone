@@ -70,8 +70,8 @@ fun DownloadScreenTopBar() {
 fun DownloadScreenTexts() {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(15.dp),
+            .padding(15.dp)
+            .wrapContentHeight(),
         horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Top
     ) {
         Row(
@@ -82,6 +82,7 @@ fun DownloadScreenTexts() {
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_settings_24),
+                tint = Color.White,
                 contentDescription = ""
             )
             Text(text = "Smart Downloads", fontSize = 10.sp, color = Color.White)

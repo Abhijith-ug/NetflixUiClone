@@ -27,36 +27,8 @@ fun HomeScreen() {
     var scafoldstate = rememberScaffoldState()
     var scrollState = rememberScrollState()
     val navController = rememberNavController()
-    Scaffold(scaffoldState = scafoldstate, bottomBar = {
-//        BottomNavigationBar(
-//            items = listOf(
-//                BottomNavItem(
-//                    name = "Home",
-//                    route = "home",
-//                    icon = Icons.Default.Home
-//                ),
-//                BottomNavItem(
-//                    name = "Fast Laugh",
-//                    route = "fast laugh",
-//                    icon = Icons.Default.Settings
-//                ),
-//                BottomNavItem(
-//                    name = "Search",
-//                    route = "search",
-//                    icon = Icons.Default.Search
-//                ),
-//                BottomNavItem(
-//                    name = "Downloads",
-//                    route = "downloads",
-//                    icon = Icons.Default.ArrowDropDown
-//                )
-//            ), navController = navController, onItemClick = {
-//                navController.navigate(it.route)
-//            }
-
-
-    }) {
-//        Navigation(navController = navController)
+    Scaffold() {
+        //Navigation(navController = navController)
 
         Column(
             modifier = Modifier

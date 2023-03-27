@@ -118,7 +118,7 @@ fun FastLaughPageUi(pager: FastLaughPagerData) {
                     painter = painterResource(id = pager.volumeImage),
                     contentDescription = "",
                     alignment = Alignment.BottomStart, modifier = Modifier
-                        .padding(10.dp)
+                        .padding(15.dp)
                         .size(30.dp)
                 )
             }

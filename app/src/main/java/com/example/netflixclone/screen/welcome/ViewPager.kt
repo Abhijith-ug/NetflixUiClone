@@ -1,5 +1,8 @@
 package com.example.netflixclone.screen.welcome
 
+import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -18,6 +22,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
+import com.example.netflixclone.MainActivity
 import com.example.netflixclone.Model.PagerData
 import com.example.netflixclone.Model.itemList
 import com.example.netflixclone.R
@@ -131,8 +138,14 @@ fun FullWidthButton(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheetContent() {
+    val context = LocalContext.current
     var emailTextFieldState by remember {
         mutableStateOf("")
+    }
+    val startAnotherActivity = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        // handle the result of the launched activity if needed
     }
     val scope = rememberCoroutineScope()
     Column(
@@ -188,13 +201,10 @@ fun BottomSheetContent() {
             containerColor = Color.Red,
             buttonText = "Get Started"
         )
-
-                {
-
-                }
-
-
-
+        {
+            val intent = Intent(context, MainActivity::class.java)
+            startAnotherActivity.launch(intent)
         }
     }
+}
 
