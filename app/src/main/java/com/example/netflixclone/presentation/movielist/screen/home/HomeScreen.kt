@@ -16,18 +16,29 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
+import com.example.netflixclone.presentation.movielist.MovieListViewModel
 import com.example.netflixclone.presentation.movielist.components.MovieListScreen
+import com.example.netflixclone.presentation.movielist.components.TrendingMovieListScreen
 import com.example.netflixclone.presentation.movielist.screen.navigation.BottomNavItem
 import com.example.netflixclone.presentation.movielist.screen.navigation.BottomNavigationBar
 import com.example.netflixclone.presentation.movielist.screen.navigation.Navigation
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    viewModel: MovieListViewModel = hiltViewModel()
+) {
     var scafoldstate = rememberScaffoldState()
     var scrollState = rememberScrollState()
     val navController = rememberNavController()
+
+    val popularMovieState = viewModel.popularMovieState.value
+    val trendingMovieState = viewModel.trendingMovieState.value
+    val upcomingMovieState = viewModel.upcomingMovieState.value
+    val topRatedMovieState = viewModel.topRatedMovieState.value
+
     Scaffold() {
         //Navigation(navController = navController)
 
@@ -37,10 +48,11 @@ fun HomeScreen() {
                 .verticalScroll(scrollState)
 //                .verticalScroll(scrollState)
         ) {
-
             MovieCard()
-            MovieListScreen()
-
+            MovieListScreen("PopularMovies", popularMovieState)
+            MovieListScreen("TrendingMovies", trendingMovieState)
+            MovieListScreen("UpcomingMovies", upcomingMovieState)
+            MovieListScreen("TopRatedMovies", topRatedMovieState)
         }
 
     }

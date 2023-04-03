@@ -14,10 +14,10 @@ import javax.inject.Inject
 class GetPopularMoviesUseCase @Inject constructor(
     private val repository: MovieRepository
 ) {
-    operator fun invoke(): Flow<Resource<MovieList>> = flow {
+    operator fun invoke(categoryId: Int): Flow<Resource<MovieList>> = flow {
         try {
             emit(Resource.Loading())
-            val popularMovies = repository.getPopularMovies()
+            val popularMovies = repository.getMovies(categoryId)
             if (popularMovies.body() != null) {
                 emit(Resource.Success(popularMovies.body()!!))
             }
