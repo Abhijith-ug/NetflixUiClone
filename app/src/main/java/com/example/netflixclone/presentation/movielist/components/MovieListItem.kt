@@ -1,5 +1,6 @@
 package com.example.netflixclone.presentation.movielist.components
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,12 +13,13 @@ import androidx.compose.ui.unit.dp
 import coil.compose.ImagePainter.State.Empty.painter
 import coil.compose.rememberImagePainter
 import com.example.netflixclone.R
+import com.example.netflixclone.common.Constants.IMAGE_BASE_UR
 import com.example.netflixclone.domain.model.Movie
 
 @Composable
 fun MovieListItem(
-    movie:Movie
-){
+    movie: Movie
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -32,7 +34,7 @@ fun MovieListItem(
         ) {
             Image(
                 painter = rememberImagePainter(
-                    data = movie.posterPath, builder = {
+                    data = "${IMAGE_BASE_UR}/${movie.posterPath}", builder = {
                         placeholder(R.drawable.boy)
                         crossfade(true)
                     }

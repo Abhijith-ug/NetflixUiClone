@@ -17,28 +17,29 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase
-) : ViewModel(){
+) : ViewModel() {
     private val _state = mutableStateOf(PopularMovieListState())
-    val state : State<PopularMovieListState> = _state
+    val state: State<PopularMovieListState> = _state
 
     init {
         getPopularMovies()
     }
 
-    private fun getPopularMovies(){
+    private fun getPopularMovies() {
         getPopularMoviesUseCase().onEach { result ->
             Log.i("Abhi", "getPopularMovies: $result")
 
-            when(result){
-                is Resource.Success ->{
-                    _state.value = PopularMovieListState(movies = result.data?: emptyList())
+            when (result) {
+                is Resource.Success -> {
+                    _state.value =
+                        PopularMovieListState(movies = result.data?.results ?: emptyList())
                 }
-                is Resource.Error  ->{
+                is Resource.Error -> {
                     _state.value = PopularMovieListState(
-                        error = result.message?: "An unexpected error occured"
+                        error = result.message ?: "An unexpected error occured"
                     )
                 }
-                is Resource.Loading ->{
+                is Resource.Loading -> {
                     _state.value = PopularMovieListState(
                         isLoading = true
                     )

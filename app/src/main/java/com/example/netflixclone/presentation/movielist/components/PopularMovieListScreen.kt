@@ -1,9 +1,7 @@
 package com.example.netflixclone.presentation.movielist.components
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
@@ -26,10 +24,10 @@ fun MovieListScreen(
 ){
 
     val state = viewModel.state.value
-    Box(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-//            .height(300.dp)
+            .fillMaxWidth().background(color = Color.Black)
+            .height(300.dp)
     ) {
         Text(
             text = "PopularMovies",
@@ -49,10 +47,10 @@ fun MovieListScreen(
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.Center))
+                .align(Alignment.CenterHorizontally))
         }
         if (state.isLoading){
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
         }
     }
 
