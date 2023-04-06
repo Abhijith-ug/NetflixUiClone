@@ -23,8 +23,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val _popularMovies = MutableLiveData<List<Movie>>()
-    val popMovies: MutableLiveData<List<Movie>> = _popularMovies
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,11 +61,7 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-//        CoroutineScope(Dispatchers.Main).launch {
-//            val popularMovies = RetrofitInstance.api.getPopularMovies().body()
-//            popMovies.value = popularMovies?.movies
-//            Log.i("Test1", "onCreate: ${popularMovies}")
-//        }
+
     }
 }
 
