@@ -1,4 +1,6 @@
-package com.example.netflixclone.domain.model
+package com.example.netflixclone.data.local.model
+
+import com.example.netflixclone.data.local.model.Movie
 
 data class MovieList(
     val page: Int,

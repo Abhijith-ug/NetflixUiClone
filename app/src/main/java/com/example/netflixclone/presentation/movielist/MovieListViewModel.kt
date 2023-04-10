@@ -53,16 +53,16 @@ class MovieListViewModel @Inject constructor(
                 is Resource.Success -> {
                     when (categoryId) {
                         POPULAR_MOVIES -> _popularMovieState.value =
-                            MovieListState(movies = result.data?.results ?: emptyList())
+                            MovieListState(movies = result.data ?: emptyList())
 
                         TRENDING_MOVIES -> _trendingMovieState.value =
-                            MovieListState(movies = result.data?.results ?: emptyList())
+                            MovieListState(movies = result.data ?: emptyList())
 
                         UPCOMING_MOVIES -> _upcomingMovieState.value =
-                            MovieListState(movies = result.data?.results ?: emptyList())
+                            MovieListState(movies = result.data ?: emptyList())
 
                         TOP_RATED_MOVIES -> _topRatedMovieState.value =
-                            MovieListState(movies = result.data?.results ?: emptyList())
+                            MovieListState(movies = result.data ?: emptyList())
                     }
                 }
                 is Resource.Error -> {

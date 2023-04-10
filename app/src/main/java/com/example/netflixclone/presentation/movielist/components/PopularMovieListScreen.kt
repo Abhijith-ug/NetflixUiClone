@@ -1,6 +1,7 @@
 package com.example.netflixclone.presentation.movielist.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -39,7 +40,9 @@ fun MovieListScreen(
         )
         LazyRow {
             items(movieListState.movies) { movie ->
-                MovieListItem(movie = movie)
+                MovieListItem(movie = movie, modifier = Modifier.clickable {
+
+                })
             }
         }
         if (movieListState.error.isNotBlank()) {

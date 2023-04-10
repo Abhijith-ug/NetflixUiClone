@@ -41,7 +41,7 @@ fun TrendingMovieListScreen(
         )
         LazyRow{
             items(state.movies){ movie ->
-                MovieListItem(movie = movie)
+                MovieListItem(movie = movie, modifier = Modifier)
             }
         }
         if(state.error.isNotBlank()){

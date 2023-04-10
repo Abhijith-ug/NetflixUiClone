@@ -14,11 +14,11 @@ import coil.compose.ImagePainter.State.Empty.painter
 import coil.compose.rememberImagePainter
 import com.example.netflixclone.R
 import com.example.netflixclone.common.Constants.IMAGE_BASE_UR
-import com.example.netflixclone.domain.model.Movie
+import com.example.netflixclone.data.local.model.Movie
 
 @Composable
 fun MovieListItem(
-    movie: Movie
+    movie: Movie, modifier: Modifier
 ) {
     Card(
         modifier = Modifier

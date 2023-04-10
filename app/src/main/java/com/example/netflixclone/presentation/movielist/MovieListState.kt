@@ -1,6 +1,7 @@
 package com.example.netflixclone.presentation.movielist
 
-import com.example.netflixclone.domain.model.Movie
+import com.example.netflixclone.data.local.model.Movie
+
 
 data class MovieListState(
     val isLoading : Boolean = false,

@@ -1,8 +1,7 @@
 package com.example.netflixclone.data.remote
 
 import com.example.netflixclone.common.Constants.API_KEY
-import com.example.netflixclone.domain.model.Movie
-import com.example.netflixclone.domain.model.MovieList
+import com.example.netflixclone.data.local.model.MovieList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
